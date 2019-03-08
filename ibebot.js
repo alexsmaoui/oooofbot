@@ -2,8 +2,6 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
- const token = process.env.tunisia;
-
 
  client.on ("ready", () => {
      console.log ("ready!");
