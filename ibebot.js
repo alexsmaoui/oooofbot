@@ -6,7 +6,7 @@ const discord = require ('discord.js');
  client.on ("ready", () => {
      console.log ("ready!");
 
-     client.user.setActivity ("With Ibbe!");
+     client.user.setActivity ("cheacking 5 servers | !helpp");
      
      
 
