@@ -310,14 +310,14 @@ client.on('guildMemberRemove' , member => {
         }
 fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
             if (err) throw err;
-            message.channel.send ("message written");
+            message.channel.send ("Message written!");
         });
 
     }
 
     if (msg.startsWith ("!get")) {
         let _message = client.msgs[message.author.username].message;
-        message.channel.send ("message is : " + _message);
+        message.channel.send + _message;
     }
 
 
