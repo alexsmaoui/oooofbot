@@ -200,7 +200,7 @@ client.on('guildMemberRemove' , member => {
         message.channel.send(embed);
     }
   
-  if (msg.startsWith (prefix + "fortnitegen") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
+  if (msg.startsWith (prefix + "fortnitegennnn") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
         number = 40;
         var random2 = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         switch (random2) {
