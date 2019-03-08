@@ -317,7 +317,7 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
 
     if (msg.startsWith ("!get")) {
         let _message = client.msgs[message.author.username].message;
-        message.channel.send + _message;
+        message.channel.send (" " + _message);
     }
 
 
