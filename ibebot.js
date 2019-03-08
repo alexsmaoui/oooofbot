@@ -2,7 +2,7 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
- const token = "NTUwNzEzNDg5ODc5MjAzODYw.D1mbnA.cgbOFQyUxCx17WYf9ThUK9R59R4"
+ const token = process.env.tunisia
 
 
  client.on ("ready", () => {
@@ -273,4 +273,4 @@ client.on('message', message => {
 
 
 
-client.login (token);
+client.login (process.env.tunisia);
