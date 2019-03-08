@@ -267,7 +267,7 @@ client.on('guildMemberRemove' , member => {
         message.channel.send(embed);
     }
   
-  if (msg.startsWith (prefix + "spotifygen") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
+  if (msg.startsWith (prefix + "spotifygen") && message.member.hasPermission ("MANAGE_EMOJIS")) {
         number = 20;
         var random2 = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         switch (random2) {
