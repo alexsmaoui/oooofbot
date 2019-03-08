@@ -211,6 +211,61 @@ client.on('guildMemberRemove' , member => {
         .setColor("00FF00")
         message.channel.send(embed);
     }
+  
+  if (msg.startsWith (prefix + "fortnitegen") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
+        number = 30;
+        var random2 = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+        switch (random2) {
+            case 1: mention.send ("malfy5@gmail.com:pokemonball24"); break;
+            case 2: mention.send ("maki.makay@gmail.com:Volcano5"); break;
+            case 3: mention.send ("artem_kolomnikov@mail.ru:azx21618"); break;
+            case 4: mention.send ("jordanleric@gmail.com:Dirtbike627"); break;
+            case 5: mention.send ("maurice@rottmann.net:Naruto99"); break;
+            case 6: mention.send ("land161@gmail.com:land161browny"); break;
+            case 7: mention.send ("kudryashova.73@list.ru:Barsik2017"); break;
+            case 8: mention.send ("borys.fromberg@gmail.com:cokolwiek10"); break;
+            case 9: mention.send ("mikeviscariello@gmail.com:catdog22"); break;
+            case 10: mention.send ("cona0804@mail.ru:lova_123"); break;
+            case 11: mention.send ("michaeljosephpaul@gmail.com:5pinksox"); break;
+            case 12: mention.send ("ozorniktv@gmail.com:arsenii2004"); break;
+            case 13: mention.send ("maylistreseux@hotmail.fr:malili54"); break;
+            case 14: mention.send ("saadrifton.11@hotmail.fr:oumaima12"); break;
+            case 15: mention.send ("adnamfitra09@gmail.com:Naga290197"); break;
+            case 16: mention.send ("zero_cull@hotmail.it:Computer10"); break;
+            case 17: mention.send ("alex_karagounis@hotmail.com:1312akis"); break;
+            case 18: mention.send ("mark.halsell@me.com:Bmw335im"); break;
+            case 19: mention.send ("skyjake2013@mail.ru:valik2002"); break;
+            case 20: mention.send ("aarranfwin@yahoo.co.uk:dude2425"); break;
+            case 21: mention.send ("13eakers@gmail.com:6vial7vial"); break;
+            case 22: mention.send ("christaylor1986@hotmail.co.uk:ta624106"); break;
+            case 23: mention.send ("glynnfowler@gmail.com:cheese22"); break;
+            case 24: mention.send ("guillaume.levene@hotmail.fr:gael0609"); break;
+            case 25: mention.send ("tarpanelli@libero.it:Damiano2010"); break;
+            case 26: mention.send ("mosiichuk.illia@yandex.ru:Star9080"); break;
+            case 27: mention.send ("maqhusson@gmail.com:Samar123"); break;
+            case 28: mention.send ("tom.thomson118@gmail.com:Cassis11"); break;
+            case 29: mention.send ("adamr0@op.pl:Formula33"); break;
+            case 30: mention.send ("wayne_musgrave@hotmail.co.uk:WordPa55"); break;
+            case 31: mention.send ("wille.strid@hotmail.com:Google123"); break;
+            case 32: mention.send ("keryna86@gmail.com:hyperion1"); break;
+            case 33: mention.send ("jordileblanc@hotmail.com:joshua159"); break;
+            case 34: mention.send ("piotr.lesniewski@onet.com.pl:piters12"); break;
+            case 35: mention.send ("m.germosen0811@gmail.com:manu0811"); break;
+            case 36: mention.send ("m.schwafertz@live.de:23LMRA8N"); break;
+            case 37: mention.send ("dragon_quest64@hotmail.fr:Gob64mouch!!"); break;
+            case 38: mention.send ("bjones@heritagehd.com:dylan413"); break;
+            case 39: mention.send ("longchopstickz@gmail.com:chopsooey123"); break;
+            case 40: mention.send ("ukas@baugherphotography.com:Incorrect21"); break;
+            }
+        if (mention == null) { return; }
+        message.delete();
+        mentionMessage = message.content.slice (8)
+        mention.send (random2);
+        embed = new discord.RichEmbed()
+        .setDescription("I have successfully sent u the fortnite account ! Please cheack your DMs:thumbup:")
+        .setColor("00FF00")
+        message.channel.send(embed);
+    }
 
     if (msg.startsWith ("!write")) {
         editedmessage = message.content.slice (6);
