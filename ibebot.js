@@ -271,4 +271,4 @@ client.on('message', message => {
 
 
 
-client.login (process.env.TOKENN);
+client.login(process.env.TOKENN);
