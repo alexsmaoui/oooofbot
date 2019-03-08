@@ -26,13 +26,13 @@ const discord = require ('discord.js');
  })
 
  client.on('guildMemberAdd' , member => {
-     const channel = member.guild.channels.find ('name', '????welcome');
+     const channel = member.guild.channels.find ('name', 'welcome');
      if (!channel) return;
     channel.send(`:wave: Welcome to the server, :smile: ${member} :smile:`);
     });
  
 client.on('guildMemberRemove' , member => {
-    const channel = member.guild.channels.find ('name', '????welcome');
+    const channel = member.guild.channels.find ('name', 'welcome');
     if (!channel) return;
     channel.send(`:wave: Bye We will miss you ,:sob: ${member} :sob:`);
 });
@@ -101,18 +101,6 @@ client.on('guildMemberRemove' , member => {
             .setColor ("00ff00")
 
         message.channel.send (embed2);
-    }
-
-    if (message.content.startsWith ("??")) {
-        message.channel.send (":eyes:");
-        let emojicounter = client.msgs["counter"].eyesEmoji;
-        client.msgs ["counter"] = {
-            eyesEmoji: emojicounter + 1
-        }
-        fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
-            if (err) throw err;
-            message.channel.send ("`Emoji has been counted!`");
-        });
     }
 
     if (msg.startsWith (prefix + "kick")) {
