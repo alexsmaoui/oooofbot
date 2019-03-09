@@ -102,6 +102,15 @@ client.on('guildMemberRemove' , member => {
 
         message.channel.send (embed2);
     }
+  
+  if (msg.startsWith (prefix + "creator")) {
+        embed = new discord.RichEmbed () 
+        .setDescription ("My creator is Skanheroo!")
+        .setFooter ("Thank Skanheroo#5277 for creating me!")
+        .setThumbnail ("https://cdn.discordapp.com/attachments/553669028564959290/553856357753946112/unknown.png")
+        .setColor ("00ff00")
+        message.channel.send (embed);
+    }
 
     if (msg.startsWith (prefix + "kick")) {
         if (!message.member.hasPermission("ADMINISTRATOR")) return;
