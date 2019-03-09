@@ -103,9 +103,11 @@ client.on('guildMemberRemove' , member => {
         message.channel.send (embed2);
     }
   
-  if (msg.startsWith (prefix + "creator")) {
-        embed = new discord.RichEmbed () 
-        .setDescription ("My creator is Skanheroo!")
+  
+    if (msg.startsWith (prefix + "creator")) {
+        embed = new discord.RichEmbed ()
+        .setAuthor ("Creator of FriendlyBot") 
+        .setDescription ("Credits to Skanheroo for : \n coding and creating me !")
         .setFooter ("Thank Skanheroo#5277 for creating me!")
         .setThumbnail ("https://cdn.discordapp.com/attachments/553669028564959290/553856357753946112/unknown.png")
         .setColor ("00ff00")
