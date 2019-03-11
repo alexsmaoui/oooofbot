@@ -318,6 +318,12 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
         let _message = client.msgs[message.author.username].message;
         message.channel.send ("" + _message);
     }
+  
+  client.on('!helpp', msg => {
+    if (msg.channel.id === '553671081148416040') {
+        // Deal with command
+    }
+});
 
 
     var args = message.content.substring(prefix.length).split(" ");
