@@ -2,6 +2,7 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
+const talkedRecently = new Set();
 
  client.on ("ready", () => {
      console.log ("ready!");
@@ -210,8 +211,12 @@ client.on('guildMemberRemove' , member => {
         .setColor("00FF00")
         message.channel.send(embed);
     }
-  
-  if (msg.startsWith (prefix + "fortnitegen") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
+  if (talkedRecently.has(msg.author.id)) {
+            msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
+    } else {
+
+           // the user can type the command ... your command code goes here :)
+if (msg.startsWith (prefix + "fortnitegen") && message.member.hasPermission ("VIEW_AUDIT_LOG")) {
         number = 40;
         var random2 = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         switch (random2) {
@@ -264,6 +269,13 @@ client.on('guildMemberRemove' , member => {
         .setDescription("I have successfully sent u the fortnite account ! Please cheack your DMs:thumbup:")
         .setColor("00FF00")
         message.channel.send(embed);
+    }
+        // Adds the user to the set so that they can't talk for a minute
+        talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 60000);
     }
   
   if (msg.startsWith (prefix + "spotifygen") && message.member.hasPermission ("MANAGE_EMOJIS")) {
@@ -319,12 +331,7 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
         message.channel.send ("" + _message);
     }
   
-  client.on('!helpp', msg => {
-    if (msg.channel.id === '553671081148416040') {
-        // Deal with command
-    }
-});
-
+  
 
     var args = message.content.substring(prefix.length).split(" ");
     if (message.content.startsWith(prefix + "nice")) {
