@@ -189,7 +189,7 @@ client.on('guildMemberRemove' , member => {
     }
 
         if (message.content.startsWith ("+gen") && message.member.hasPermission ("USE_EXTERNAL_EMOJIS")) {
-            if (message.channel.id !== '579725065709682716 return
+            if (message.channel.id !== '579725065709682716' return
             if (message.author.bot || coolguy.has(message.author)) return
             mention.send('**Your acc is: **' + a[Math.floor(Math.random() * 10)])
             embed = new discord.RichEmbed ()
