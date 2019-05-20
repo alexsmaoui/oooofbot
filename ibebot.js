@@ -2,6 +2,8 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
+ const token = "NTUwNzEzNDg5ODc5MjAzODYw.XOG0wg.kYlaUw3VCmYjJpG1AI02BQDEEv0"
+
  const cooldowns = new Set();
 
  const coolguy = new Set();
@@ -11,16 +13,11 @@ const discord = require ('discord.js');
      console.log ("ready!");
 
      client.user.setActivity ("cheacking 5 servers | !helpp");
-     
-     
-
-     answered = true;
-     cAnswer = "";
-     userAnswer = "";
      });
 
  const fs = require("fs");
  client.msgs = require ("./msgs.json");
+ client.fortnite = require ("./fortnite.json");
 
  client.on ("guildMemberAdd", member => {
 
@@ -41,7 +38,7 @@ client.on('guildMemberRemove' , member => {
     channel.send(`:wave: Bye We will miss you ,:sob: ${member} :sob:`);
 });
 
- const prefix = "!";
+ const prefix = "?";
  client.on ("message", (message) => {
 
     if (message.author.bot) return;
@@ -50,39 +47,12 @@ client.on('guildMemberRemove' , member => {
 
     let mention = message.mentions.users.first() || message.author
 
-    let b = ['thebigkid27@gmail.com:Cardinals27', 'fengyyml@163.com:356126153f', 'andron2002@outlook.com:Andron2001', 'crazyaussy@hotmail.ca:Austyn2002', 'samsung5000@gmail.com:G3d3g4fl3r', 'sinkay_gw2@hotmail.com:soloyo90', 'ascalonn@hotmail.co.uk:12ax7wbB', 'laclin127@gmail.com:hello1234', 'devilsagony3@gmail.com:Happyzone1', 'courtney.valentin@yahoo.com:Kangaroo1964']
-
-    let a = ['thebigkid27@gmail.com:Cardinals27', 'fengyyml@163.com:356126153f', 'andron2002@outlook.com:Andron2001', 'crazyaussy@hotmail.ca:Austyn2002', 'samsung5000@gmail.com:G3d3g4fl3r', 'sinkay_gw2@hotmail.com:soloyo90', 'ascalonn@hotmail.co.uk:12ax7wbB', 'laclin127@gmail.com:hello1234', 'devilsagony3@gmail.com:Happyzone1', 'courtney.valentin@yahoo.com:Kangaroo1964']
-
     if (msg.startsWith (prefix + "send")) {
         if (mention == null) { return; }
         message.delete();
         mentionMessage = message.content.slice (8)
         mention.send (mentionMessage);
         message.channel.send ("Message has been sent!");
-    }
-    
-
-    if (answered == false) {
-        userAnswer = msg;
-        if (userAnswer == cAnswer) {
-            message.reply ("got it right! :smile:");
-        }
-        else {
-            message.reply ("got it wrong :sob:");
-        }
-        answered = true; cAnswer = ""; userAnswer = "";
-    }
-
-    if (msg.startsWith(prefix + "quiz")) {
-        number = 3;
-        var random4 = Math.floor (Math.random() * (number - 1 + 1)) + 1;
-        switch (random4) {
-            case 1: message.channel.send ("How amazing is Ibbe: \n`A ) Godly \nB ) Amazing \nC ) Okay \nD ) Meh`"); cAnswer = "a"; break;
-            case 2: message.channel.send ("How many dogs live on the moon?"); cAnswer = "0"; break;
-            case 3: message.channel.send ("When was Kilroy created?"); cAnswer = "1940"; break;
-        }
-        answered = false;
     }
 
     function cooldown(user, time) {
@@ -100,67 +70,11 @@ client.on('guildMemberRemove' , member => {
        embed = new discord.RichEmbed ()
        .setDescription (`U have to wait ${time} seconds before using this command again, ${user.tag}`)
        .setColor ("00ff00")
+       .setThumbnail("https://cdn.discordapp.com/attachments/579732731710406657/580028507426652167/timmmeer.jpg")
        message.channel.send (embed);
       }      
-    
-    
-    if (msg.startsWith (prefix + "infosss")) {
-        embed = new discord.RichEmbed ()
-            .setAuthor ("?? INVITE REWARDS ??")
-            .setDescription ("These are the invite rewards ! \n 2: Random account (1+ skin) \n --More income..")
-            .setFooter ("This invite rewards was created by Ibbe")
-            .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
-            .setColor ("00ff00")
 
-        message.channel.send (embed);    
-    }
-
-    if (msg.startsWith (prefix + "helpp")) {
-        embed2 = new discord.RichEmbed ()
-            .setAuthor ("What's the server for ? ?? Looking for info ? here is the commands ?? :")
-            .setDescription (" --!infos \n --!helpp \n --!owner \n --!hello \n --!write + write something and then !get \n -- ??More coming soon??...!")
-            .setFooter ("This commands was created by Skanheroo.")
-            .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
-            .setColor ("00ff00")
-
-        message.channel.send (embed2);
-    }
-
-    if (msg.startsWith (prefix + "creator")) {
-        embed = new discord.RichEmbed ()
-        .setAuthor ("Creator of FriendlyBot") 
-        .setDescription ("Credits to Skanheroo for : \n coding and creating me !")
-        .setFooter ("Thank Skanheroo#5277 for creating me!")
-        .setThumbnail ("https://cdn.discordapp.com/attachments/553669028564959290/553856357753946112/unknown.png")
-        .setColor ("00ff00")
-        message.channel.send (embed);
-    }
-
-    if (msg.startsWith (prefix + "kick")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return;
-        if (mention == null) return;
-        if (message.guild.member(mention).hasPermission("KICK_MEMBERS")) return;
-        let reason = message.content.slice (prefix.length + mention.toString().length + 5);
-        message.channel.send (mention.username + " has been kicked for" + reason);
-        mention.send ("You have been kicked because: \n" + reason).then (d_msg => {
-            message.guild.member(mention).kick(reason);
-        })
-            
-    }
-
-
-    if (msg.startsWith (prefix + "ban")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return;
-        if (mention == null) return;
-        if (message.guild.member(mention).hasPermission("BAN_MEMBERS")) return;
-        let reason = message.content.slice (prefix.length + mention.toString().length + 5);
-        message.channel.send (mention.username + " has been banned for " + reason);
-        mention.send ("You have been banned because: \n" + reason).then (d_msg => {
-            message.guild.member(mention).ban(reason);
-        })
-            
-    }
-
+   
     if (msg.startsWith (prefix + "crole") && message.member.hasPermission ("MANAGE_ROLES")) {
         messageSplit = message.content.split (" ", 3);
         roleName = messageSplit[1];
@@ -184,36 +98,64 @@ client.on('guildMemberRemove' , member => {
         })
     }
 
-    if (msg.startsWith ("!owner")) {
-        message.channel.send ("This guy is the owner !", {files: ["./images/Ibbbe.PNG"]});
-    }
 
-        if (message.content.startsWith ("+gen") && message.member.hasPermission ("USE_EXTERNAL_EMOJIS")) {
-            if (message.channel.id !== '579725065709682716') return
+        if (message.content.startsWith (prefix + "gen")) {
+            let embdf = new discord.RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(`Use This Command In (#normal-gen)`)
+    let prm = new discord.RichEmbed()
+    .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
+    .setColor("YELLOW")
+    if (!message.member.roles.find(`name`, 'Normal Gen Access')) return message.channel.send(prm);
+            if (message.channel.id !== '579795955667435521') return message.channel.send(embdf);
             if (message.author.bot || coolguy.has(message.author)) return
-            mention.send('**Your acc is: **' + a[Math.floor(Math.random() * 10)])
+            var __message = client.fortnite.message;
+            eee = new discord.RichEmbed()
+            .setColor("RANDOM")
+            .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
+            .setTitle("**__✅GENERATED FORTNITE ACCOUNT✅__**")
+            .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * __message.length)]);
+        mention.send (eee);
+
             embed = new discord.RichEmbed ()
-            .setDescription ("I Have Successfully Sent You The Fortnite Account ! Please Check Your DMs:thumbup:")
+            .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
             .setColor ("#")
+            .setThumbnail(message.author.displayAvatarURL)
             message.channel.send(embed);
-          skanherooo(message.author, 180);
+          skanherooo(message.author, 1);
             }
 
-            if (message.content.startsWith ("+pgen") && message.member.hasPermission ("USE_EXTERNAL_EMOJIS")) {
-                if (message.channel.id !== '528718495375163402') return
+
+            if (message.content.startsWith (prefix + "pgen")) {
+                let embdf = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#premuim-gen)`)
+        let prm = new discord.RichEmbed()
+        .setDescription("U Need To Have (Premium Gen Access) To Run This Command!")
+        .setColor("RED")
+                if (!message.member.roles.find(`name`, 'Premium Gen Access')) return message.channel.send(prm);
+                if (message.channel.id !== '579796017948393494') return message.channel.send(embdf);
                 if (message.author.bot || cooldowns.has(message.author)) return
-                mention.send('**Your Premuim Acc Is: **' + b[Math.floor(Math.random() * 10)])
+                var __message = client.fortnite.message;
+                eee = new discord.RichEmbed()
+                .setColor("RANDOM")
+                .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
+                .setTitle("**__✅GENERATED PREMUIM FORTNITE ACCOUNT✅__**")
+                .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * __message.length)]);
+            mention.send (eee);
+    
                 embed = new discord.RichEmbed ()
-                    .setDescription ("I Have Successfully Sent You The Premuim Fortnite Account ! Please Check Your DMs:thumbup:")
-                    .setColor ("#FF00FF")
-                    message.channel.send(embed);
-              cooldown(message.author, 120);
+                .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
+                .setColor ("#")
+                .setThumbnail(message.author.displayAvatarURL)
+                message.channel.send(embed);
+              cooldown(message.author, 1);
                 }
             
            
     
-    if (msg.startsWith ("!write")) {
-        editedmessage = message.content.slice (6);
+    if (msg.startsWith ("?write")) {
+         editedmessage = message.content.slice (6);
 
         client.msgs [message.author.username] = {
             message: editedmessage
@@ -224,17 +166,38 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
         });
 
     }
+    if (msg.startsWith ("?restock")) {
+        const filter = m => m.author.id === message.author.id;
+        message.reply("Please send the accounts ur going to restock below!...U Got 10 seconds..").then(r => r.delete(10000));
+        message.channel.awaitMessages(filter, {
+            max:1000,
+            time: 10000
+        }).then(collected => {
 
-    if (msg.startsWith("+stock")) {
-        embed = new discord.RichEmbed ()
-        .setAuthor("STOCK")
-        .setDescription("There Is Currectly 300 Fortnite Account In Stock \n There Is Currently 400 Premuim Forntite Account In Stock")
-        .setFooter("We will be restocking everyday!")
-        .setColor("#FF00FF")
-        message.channel.send(embed);
+            if(collected.first().content === "cancel"){
+                return message.reply("Canceled!");
+            }
+
+        if (message.channel.id !== '579732731710406657') return message.channel.send("**This Command Can Be Used Only In The Private Channel.**")
+        editedmessagee = collected.first().content.split("\n");
+        client.fortnite = {
+            message: editedmessagee
+        }
+fs.writeFile ("./fortnite.json", JSON.stringify (client.fortnite, null, 4), err => {
+            if (err) throw err;
+            eeee = new discord.RichEmbed()
+            .setDescription("__Added Accounts!__")
+            .setColor("GREEN")
+            message.channel.send (eeee);
+        });
+}).catch(err => {
+    console.log(err)
+})
     }
 
-    if (msg.startsWith ("!get")) {
+
+
+    if (msg.startsWith ("?get")) {
         let _message = client.msgs[message.author.username].message;
         message.channel.send ("" + _message);
     }
@@ -265,9 +228,8 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
               }
 });
 
-
 client.on('message', message => {
-    if (message.content.split(' ')[0] == '!dm')
+    if (message.content.split(' ')[0] == '?dm')
        message.guild.members.forEach( member => {
          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
            member.send(message.content.substr(3));
@@ -276,7 +238,4 @@ client.on('message', message => {
                                                     });
 
                                                   });
-
-
-
 client.login(process.env.TOKENN);
