@@ -2,8 +2,6 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
- const token = "NTUwNzEzNDg5ODc5MjAzODYw.XOG0wg.kYlaUw3VCmYjJpG1AI02BQDEEv0"
-
  const cooldowns = new Set();
 
  const coolguy = new Set();
