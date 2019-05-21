@@ -108,6 +108,7 @@ client.on('guildMemberRemove' , member => {
             if (message.channel.id !== '579795955667435521') return message.channel.send(embdf);
             if (message.author.bot || coolguy.has(message.author)) return
             var __message = client.fortnite.message;
+             if (__message.length < 2) return message.channel.send("**__We're out of stock__**")
             eee = new discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
@@ -135,6 +136,7 @@ client.on('guildMemberRemove' , member => {
                 if (message.channel.id !== '579796017948393494') return message.channel.send(embdf);
                 if (message.author.bot || cooldowns.has(message.author)) return
                 var __message = client.fortnite.message;
+                 if (__message.length < 2) return message.channel.send("**__We're out of stock__**")
                 eee = new discord.RichEmbed()
                 .setColor("RANDOM")
                 .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
