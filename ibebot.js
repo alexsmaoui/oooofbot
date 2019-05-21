@@ -114,7 +114,6 @@ client.on('guildMemberRemove' , member => {
             .setTitle("**__✅GENERATED FORTNITE ACCOUNT✅__**")
             .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * __message.length)]);
         mention.send (eee);
-        if (__message.length < 2) return message.channel.send("**__We're out of stock__**")
             embed = new discord.RichEmbed ()
             .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
             .setColor ("#")
@@ -135,7 +134,6 @@ client.on('guildMemberRemove' , member => {
                 if (message.channel.id !== '579796017948393494') return message.channel.send(embdf);
                 if (message.author.bot || cooldowns.has(message.author)) return
                 var __message = client.fortnite.message;
-                if (__message.length < 2) return message.channel.send("**__We're out of stock__**")
                 eee = new discord.RichEmbed()
                 .setColor("RANDOM")
                 .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
