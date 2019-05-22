@@ -33,19 +33,6 @@ const discord = require ('discord.js');
     let msg = message.content.toLowerCase();
     let mention = message.mentions.users.first() || message.author
 
-        var embdff = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#normal-gen)`)
-        var prmm = new discord.RichEmbed()
-        .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
-        .setColor("YELLOW")
-        let embdfff = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#spotify-gen)`)
-        let prmmm = new discord.RichEmbed()
-        .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
-        .setColor("YELLOW")
-
 
     function cooldown(user, time) {
         cooldowns.add(user);
@@ -105,6 +92,12 @@ const discord = require ('discord.js');
 
 
             if (message.content.startsWith (prefix + "pgen")) {
+              let embdff = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#normal-gen)`)
+        let prmm = new discord.RichEmbed()
+        .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
+        .setColor("YELLOW")
                 if (!message.member.roles.find(`name`, 'Premium Gen Access')) return 
                 message.channel.send(prmm);
                 if (message.channel.id !== '579796017948393494') return 
@@ -128,6 +121,12 @@ const discord = require ('discord.js');
                 }
 
                 if (message.content.startsWith (prefix + "spotify")) {
+                  let embdfff = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#spotify-gen)`)
+        let prmmm = new discord.RichEmbed()
+        .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
+        .setColor("YELLOW")
             if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmm);
                     if (message.channel.id !== '580531805791322133') return message.channel.send(embdfff);
                     if (message.author.bot || coolguy.has(message.author)) return
