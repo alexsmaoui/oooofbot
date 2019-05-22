@@ -41,20 +41,29 @@ client.on('guildMemberRemove' , member => {
 
  const prefix = "?";
  client.on ("message", (message) => {
-
     if (message.author.bot) return;
-
     let msg = message.content.toLowerCase();
-
     let mention = message.mentions.users.first() || message.author
 
-    if (msg.startsWith (prefix + "send")) {
-        if (mention == null) { return; }
-        message.delete();
-        mentionMessage = message.content.slice (8)
-        mention.send (mentionMessage);
-        message.channel.send ("Message has been sent!");
-    }
+    var embdf = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#premuim-gen)`)
+        var prm = new discord.RichEmbed()
+        .setDescription("U Need To Have (Premium Gen Access) To Run This Command!")
+        .setColor("RED")
+        var embdff = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#normal-gen)`)
+        var prmm = new discord.RichEmbed()
+        .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
+        .setColor("YELLOW")
+        let embdfff = new discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Use This Command In (#spotify-gen)`)
+        let prmmm = new discord.RichEmbed()
+        .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
+        .setColor("YELLOW")
+
 
     function cooldown(user, time) {
         cooldowns.add(user);
@@ -84,30 +93,6 @@ client.on('guildMemberRemove' , member => {
        message.channel.send (embed);
       }      
 
-   
-    if (msg.startsWith (prefix + "crole") && message.member.hasPermission ("MANAGE_ROLES")) {
-        messageSplit = message.content.split (" ", 3);
-        roleName = messageSplit[1];
-        roleColor = messageSplit[2].toUpperCase();
-        addRolePerson = message.member;
-        if (mention != null) { addRolePerson = message.guild.member(mention);}
-        message.guild.createRole ( { 
-            name: roleName,
-            color: roleColor,
-            mentionable: true,
-         }).then (role => addRolePerson.addRole(role));
-         message.channel.send ("**The Role** " + roleName + " **has been added.**").then (d_msg => d_msg.delete(3000));
-         message.delete(3000);
-    }
-
-    if(message.content.startsWith(`${prefix}createchannel`)) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return;
-        const args = message.content.slice(15);
-        message.guild.createChannel(`${args}`).then(channel => {
-            channel.setTopic(`This is Ibbe channel!`)
-        })
-    }
-
 
         if (message.content.startsWith (prefix + "gen")) {
             let embdf = new discord.RichEmbed()
@@ -120,11 +105,13 @@ client.on('guildMemberRemove' , member => {
             if (message.channel.id !== '579795955667435521') return message.channel.send(embdf);
             if (message.author.bot || coolguy.has(message.author)) return
             var __message = client.fortnite.message;
+            let numberofaccs = __message.length
+            if (__message.length < 1) return message.channel.send("**__Out Of Stock.__**")
             eee = new discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
             .setTitle("**__✅GENERATED FORTNITE ACCOUNT✅__**")
-            .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * __message.length)]);
+            .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * numberofaccs)]);
         mention.send (eee);
             embed = new discord.RichEmbed ()
             .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
@@ -136,16 +123,13 @@ client.on('guildMemberRemove' , member => {
 
 
             if (message.content.startsWith (prefix + "pgen")) {
-                let embdf = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#premuim-gen)`)
-        let prm = new discord.RichEmbed()
-        .setDescription("U Need To Have (Premium Gen Access) To Run This Command!")
-        .setColor("RED")
-                if (!message.member.roles.find(`name`, 'Premium Gen Access')) return message.channel.send(prm);
-                if (message.channel.id !== '579796017948393494') return message.channel.send(embdf);
-                if (message.author.bot || cooldowns.has(message.author)) return
+                if (!message.member.roles.find(`name`, 'Premium Gen Access')) return 
+                message.channel.send(prmm);
+                if (message.channel.id !== '579796017948393494') return 
+                message.channel.send(embdff);
+                if (message.author.bot || cooldowns.has(message.author)) return      
                 var __message = client.fortnite.message;
+                if (__message.length < 1) return message.channel.send("**__Out Of Stock.__**");
                 eee = new discord.RichEmbed()
                 .setColor("RANDOM")
                 .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
@@ -162,16 +146,11 @@ client.on('guildMemberRemove' , member => {
                 }
 
                 if (message.content.startsWith (prefix + "spotify")) {
-                    let embdf = new discord.RichEmbed()
-            .setColor("RANDOM")
-            .setDescription(`Use This Command In (#spotify-gen)`)
-            let prm = new discord.RichEmbed()
-            .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
-            .setColor("YELLOW")
-            if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prm);
-                    if (message.channel.id !== '580531805791322133') return message.channel.send(embdf);
+            if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmm);
+                    if (message.channel.id !== '580531805791322133') return message.channel.send(embdfff);
                     if (message.author.bot || coolguy.has(message.author)) return
                     var __messagee = client.spotify.message;
+                    if (__messagee.length < 1) return message.channel.send("__**Out Of Stock.__**")
                     eee = new discord.RichEmbed()
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
@@ -183,23 +162,10 @@ client.on('guildMemberRemove' , member => {
                     .setColor ("#")
                     .setThumbnail(message.author.displayAvatarURL)
                     message.channel.send(embed);
-                  somethingik(message.author, 180);
+                  somethingik(message.author, 200);
                     }
             
            
-    
-    if (msg.startsWith ("?write")) {
-         editedmessage = message.content.slice (6);
-
-        client.msgs [message.author.username] = {
-            message: editedmessage
-        }
-fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
-            if (err) throw err;
-            message.channel.send ("Message written!");
-        });
-
-    }
     if (msg.startsWith ("?restock")) {
         const filter = m => m.author.id === message.author.id;
         message.reply("Please send the accounts ur going to restock below!...U Got 10 seconds..").then(r => r.delete(10000));
@@ -215,8 +181,9 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
         if (message.channel.id !== '579732731710406657') return message.channel.send("**This Command Can Be Used Only In The Private Channel.**")
         editedmessagee = collected.first().content.split("\n");
         client.fortnite = {
-            message: editedmessagee
+            message: editedmessagee 
         }
+
 fs.writeFile ("./fortnite.json", JSON.stringify (client.fortnite, null, 4), err => {
             if (err) throw err;
             eeee = new discord.RichEmbed()
@@ -257,12 +224,6 @@ fs.writeFile ("./spotify.json", JSON.stringify (client.spotify, null, 4), err =>
 })
     }
 
-
-
-    if (msg.startsWith ("?get")) {
-        let _message = client.msgs[message.author.username].message;
-        message.channel.send ("" + _message);
-    }
 
 
     var args = message.content.substring(prefix.length).split(" ");
