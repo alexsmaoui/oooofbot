@@ -95,20 +95,8 @@ client.on('guildMemberRemove' , member => {
             channel.setTopic(`This is Ibbe channel!`)
         })
     }
-            
-           
-    
-    if (msg.startsWith ("?write")) {
-         editedmessage = message.content.slice (6);
-
-        client.msgs [message.author.username] = {
-            message: editedmessage
-        }
-fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
-            if (err) throw err;
-            message.channel.send ("Message written!");
-        });
-if (message.content.startsWith (prefix + "gen")) {
+  
+  if (message.content.startsWith (prefix + "gen")) {
             let embdf = new discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(`Use This Command In (#normal-gen)`)
@@ -159,6 +147,19 @@ if (message.content.startsWith (prefix + "gen")) {
                 message.channel.send(embed);
               cooldown(message.author, 180);
                 }
+            
+           
+    
+    if (msg.startsWith ("?write")) {
+         editedmessage = message.content.slice (6);
+
+        client.msgs [message.author.username] = {
+            message: editedmessage
+        }
+fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
+            if (err) throw err;
+            message.channel.send ("Message written!");
+        });
     }
     if (msg.startsWith ("?restock")) {
         const filter = m => m.author.id === message.author.id;
