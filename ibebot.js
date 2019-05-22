@@ -33,12 +33,6 @@ const discord = require ('discord.js');
     let msg = message.content.toLowerCase();
     let mention = message.mentions.users.first() || message.author
 
-    var embdf = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#premuim-gen)`)
-        var prm = new discord.RichEmbed()
-        .setDescription("U Need To Have (Premium Gen Access) To Run This Command!")
-        .setColor("RED")
         var embdff = new discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(`Use This Command In (#normal-gen)`)
