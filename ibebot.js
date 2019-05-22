@@ -5,6 +5,8 @@ const discord = require ('discord.js');
  const cooldowns = new Set();
 
  const coolguy = new Set();
+ 
+ const somethingidk = new Set();
 
 
  client.on ("ready", () => {
@@ -16,6 +18,7 @@ const discord = require ('discord.js');
  const fs = require("fs");
  client.msgs = require ("./msgs.json");
  client.fortnite = require ("./fortnite.json");
+ client.spotify = require ("./spotify.json");
 
  client.on ("guildMemberAdd", member => {
 
@@ -71,6 +74,15 @@ client.on('guildMemberRemove' , member => {
        .setThumbnail("https://cdn.discordapp.com/attachments/579732731710406657/580028507426652167/timmmeer.jpg")
        message.channel.send (embed);
       }      
+      function somethingik(user, time) {
+        somethingidk.add(user);
+        setTimeout(() => somethingidk.delete(user), time * 1000);
+       embed = new discord.RichEmbed ()
+       .setDescription (`U have to wait ${time} seconds before using this command again, ${user.tag}`)
+       .setColor ("00ff00")
+       .setThumbnail("https://cdn.discordapp.com/attachments/579732731710406657/580028507426652167/timmmeer.jpg")
+       message.channel.send (embed);
+      }      
 
    
     if (msg.startsWith (prefix + "crole") && message.member.hasPermission ("MANAGE_ROLES")) {
@@ -95,8 +107,9 @@ client.on('guildMemberRemove' , member => {
             channel.setTopic(`This is Ibbe channel!`)
         })
     }
-  
-  if (message.content.startsWith (prefix + "gen")) {
+
+
+        if (message.content.startsWith (prefix + "gen")) {
             let embdf = new discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(`Use This Command In (#normal-gen)`)
@@ -118,7 +131,7 @@ client.on('guildMemberRemove' , member => {
             .setColor ("#")
             .setThumbnail(message.author.displayAvatarURL)
             message.channel.send(embed);
-          skanherooo(message.author, 300);
+          skanherooo(message.author, 1);
             }
 
 
@@ -145,8 +158,33 @@ client.on('guildMemberRemove' , member => {
                 .setColor ("#")
                 .setThumbnail(message.author.displayAvatarURL)
                 message.channel.send(embed);
-              cooldown(message.author, 180);
+              cooldown(message.author, 1);
                 }
+
+                if (message.content.startsWith (prefix + "spotify")) {
+                    let embdf = new discord.RichEmbed()
+            .setColor("RANDOM")
+            .setDescription(`Use This Command In (#spotify-gen)`)
+            let prm = new discord.RichEmbed()
+            .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
+            .setColor("YELLOW")
+            if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prm);
+                    if (message.channel.id !== '580531805791322133') return message.channel.send(embdf);
+                    if (message.author.bot || coolguy.has(message.author)) return
+                    var __messagee = client.spotify.message;
+                    eee = new discord.RichEmbed()
+                    .setColor("RANDOM")
+                    .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
+                    .setTitle("**__✅GENERATED SPOTIFY ACCOUNT✅__**")
+                    .setDescription("**email:password** :"  + __messagee[Math.floor(Math.random() * __messagee.length)]);
+                mention.send (eee);
+                    embed = new discord.RichEmbed ()
+                    .setDescription (`I Have Successfully Sent You The Spotify Account! Please Check Your DMs:thumbup:`)
+                    .setColor ("#")
+                    .setThumbnail(message.author.displayAvatarURL)
+                    message.channel.send(embed);
+                  somethingik(message.author, 1);
+                    }
             
            
     
@@ -160,6 +198,7 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
             if (err) throw err;
             message.channel.send ("Message written!");
         });
+
     }
     if (msg.startsWith ("?restock")) {
         const filter = m => m.author.id === message.author.id;
@@ -179,6 +218,34 @@ fs.writeFile ("./msgs.json", JSON.stringify (client.msgs, null, 4), err => {
             message: editedmessagee
         }
 fs.writeFile ("./fortnite.json", JSON.stringify (client.fortnite, null, 4), err => {
+            if (err) throw err;
+            eeee = new discord.RichEmbed()
+            .setDescription("__Added Accounts!__")
+            .setColor("GREEN")
+            message.channel.send (eeee);
+        });
+}).catch(err => {
+    console.log(err)
+})
+    }
+    if (msg.startsWith ("?rspotify")) {
+        const filter = m => m.author.id === message.author.id;
+        message.reply("Please send the spotify accounts ur going to restock below!...U Got 10 seconds..").then(r => r.delete(10000));
+        message.channel.awaitMessages(filter, {
+            max:1000,
+            time: 10000
+        }).then(collected => {
+
+            if(collected.first().content === "cancel"){
+                return message.reply("Canceled!");
+            }
+
+        if (message.channel.id !== '579732731710406657') return message.channel.send("**This Command Can Be Used Only In The Private Channel.**")
+        editedmessageee = collected.first().content.split("\n");
+        client.spotify = {
+            message: editedmessageee
+        }
+fs.writeFile ("./spotify.json", JSON.stringify (client.spotify, null, 4), err => {
             if (err) throw err;
             eeee = new discord.RichEmbed()
             .setDescription("__Added Accounts!__")
