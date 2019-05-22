@@ -27,18 +27,6 @@ const discord = require ('discord.js');
 
  })
 
- client.on('guildMemberAdd' , member => {
-     const channel = member.guild.channels.find ('name', 'welcome');
-     if (!channel) return;
-    channel.send(`:wave: Welcome to the server, :smile: ${member} :smile:`);
-    });
- 
-client.on('guildMemberRemove' , member => {
-    const channel = member.guild.channels.find ('name', 'welcome');
-    if (!channel) return;
-    channel.send(`:wave: Bye We will miss you ,:sob: ${member} :sob:`);
-});
-
  const prefix = "?";
  client.on ("message", (message) => {
     if (message.author.bot) return;
