@@ -16,7 +16,6 @@ const discord = require ('discord.js');
      });
 
  const fs = require("fs");
- client.msgs = require ("./msgs.json");
  client.fortnite = require ("./fortnite.json");
  client.spotify = require ("./spotify.json");
 
@@ -64,23 +63,24 @@ const discord = require ('discord.js');
 
 
         if (message.content.startsWith (prefix + "gen")) {
-            let embdf = new discord.RichEmbed()
+            let emdf = new discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(`Use This Command In (#normal-gen)`)
-    let prm = new discord.RichEmbed()
+    let pr = new discord.RichEmbed()
     .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
     .setColor("YELLOW")
-    if (!message.member.roles.find(`name`, 'Normal Gen Access')) return message.channel.send(prm);
-            if (message.channel.id !== '579795955667435521') return message.channel.send(embdf);
+    if (!message.member.roles.find(`name`, 'Normal Gen Access')) return message.channel.send(pr);
+            if (message.channel.id !== '579795955667435521') return message.channel.send(emdf);
             if (message.author.bot || coolguy.has(message.author)) return
             var __message = client.fortnite.message;
             let numberofaccs = __message.length
-            if (__message.length < 1) return message.channel.send("**__Out Of Stock.__**")
+            if (__message.length < 2) return message.channel.send("**__Out Of Stock.__**")
+            let randomacc2 = (__message[Math.floor(Math.random() * numberofaccs)]);
             eee = new discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
             .setTitle("**__✅GENERATED FORTNITE ACCOUNT✅__**")
-            .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * numberofaccs)]);
+            .setDescription("**email:password** :"  + randomacc2);
         mention.send (eee);
             embed = new discord.RichEmbed ()
             .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
@@ -89,28 +89,28 @@ const discord = require ('discord.js');
             message.channel.send(embed);
           skanherooo(message.author, 300);
             }
-
-
             if (message.content.startsWith (prefix + "pgen")) {
-              let embdff = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#normal-gen)`)
-        let prmm = new discord.RichEmbed()
-        .setDescription("U Need To have (Normal Gen Access) To Run This Command!")
-        .setColor("YELLOW")
+                let embdffff = new discord.RichEmbed()
+            .setColor("RANDOM")
+            .setDescription(`Use This Command In (#premuim-gen)`)
+            let prmmmm = new discord.RichEmbed()
+            .setDescription("U Need To have (Premium Gen Access) To Run This Command!")
+            .setColor("YELLOW")
                 if (!message.member.roles.find(`name`, 'Premium Gen Access')) return 
-                message.channel.send(prmm);
+                message.channel.send(prmmmm);
                 if (message.channel.id !== '579796017948393494') return 
-                message.channel.send(embdff);
+                message.channel.send(embdffff);
                 if (message.author.bot || cooldowns.has(message.author)) return      
                 var __message = client.fortnite.message;
-                if (__message.length < 1) return message.channel.send("**__Out Of Stock.__**");
+                let numberofaccss = __message.length
+                if (__message.length < 2) return message.channel.send("**__Out Of Stock.__**");
+                let randomacc = (__message[Math.floor(Math.random() * numberofaccss)]);
                 eee = new discord.RichEmbed()
                 .setColor("RANDOM")
                 .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
                 .setTitle("**__✅GENERATED PREMUIM FORTNITE ACCOUNT✅__**")
-                .setDescription("**email:password** :"  + __message[Math.floor(Math.random() * __message.length)]);
-            mention.send (eee);
+                .setDescription("**email:password** :"  + randomacc);
+            mention.send (eee)
     
                 embed = new discord.RichEmbed ()
                 .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
@@ -119,31 +119,33 @@ const discord = require ('discord.js');
                 message.channel.send(embed);
               cooldown(message.author, 180);
                 }
-
+    
                 if (message.content.startsWith (prefix + "spotify")) {
-                  let embdfff = new discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Use This Command In (#spotify-gen)`)
-        let prmmm = new discord.RichEmbed()
-        .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
-        .setColor("YELLOW")
-            if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmm);
-                    if (message.channel.id !== '580531805791322133') return message.channel.send(embdfff);
+                    let embdfffff = new discord.RichEmbed()
+                    .setColor("RANDOM")
+                    .setDescription(`Use This Command In (#spotify-gen)`)
+                    let prmmmmm = new discord.RichEmbed()
+                    .setDescription("U Need To have (Spotify Gen Access) To Run This Command!")
+                    .setColor("YELLOW")
+            if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmmmm);
+                    if (message.channel.id !== '580531805791322133') return message.channel.send(embdfffff);
                     if (message.author.bot || coolguy.has(message.author)) return
                     var __messagee = client.spotify.message;
-                    if (__messagee.length < 1) return message.channel.send("__**Out Of Stock.__**")
+                    let numberofaccsss = __messagee.length
+                    if (__messagee.length < 2) return message.channel.send("__**Out Of Stock.**__")
+                    let randomaccc = (__message[Math.floor(Math.random() * numberofaccsss)]);
                     eee = new discord.RichEmbed()
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
                     .setTitle("**__✅GENERATED SPOTIFY ACCOUNT✅__**")
-                    .setDescription("**email:password** :"  + __messagee[Math.floor(Math.random() * __messagee.length)]);
+                    .setDescription("**email:password** :"  + __messagee[Math.floor(Math.random() * randomaccc)]);
                 mention.send (eee);
                     embed = new discord.RichEmbed ()
                     .setDescription (`I Have Successfully Sent You The Spotify Account! Please Check Your DMs:thumbup:`)
                     .setColor ("#")
                     .setThumbnail(message.author.displayAvatarURL)
                     message.channel.send(embed);
-                  somethingik(message.author, 200);
+                  somethingik(message.author, 180);
                     }
             
            
@@ -245,4 +247,4 @@ client.on('message', message => {
 
 
 
-client.login(process.env.TOKENN);
+client.login(token);
