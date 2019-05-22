@@ -131,7 +131,7 @@ client.on('guildMemberRemove' , member => {
             .setColor ("#")
             .setThumbnail(message.author.displayAvatarURL)
             message.channel.send(embed);
-          skanherooo(message.author, 1);
+          skanherooo(message.author, 300);
             }
 
 
@@ -158,7 +158,7 @@ client.on('guildMemberRemove' , member => {
                 .setColor ("#")
                 .setThumbnail(message.author.displayAvatarURL)
                 message.channel.send(embed);
-              cooldown(message.author, 1);
+              cooldown(message.author, 180);
                 }
 
                 if (message.content.startsWith (prefix + "spotify")) {
@@ -183,7 +183,7 @@ client.on('guildMemberRemove' , member => {
                     .setColor ("#")
                     .setThumbnail(message.author.displayAvatarURL)
                     message.channel.send(embed);
-                  somethingik(message.author, 1);
+                  somethingik(message.author, 180);
                     }
             
            
