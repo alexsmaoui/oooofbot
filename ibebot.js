@@ -133,7 +133,7 @@ const discord = require ('discord.js');
                     var __messagee = client.spotify.message;
                     let numberofaccsss = __messagee.length
                     if (__messagee.length < 2) return message.channel.send("__**Out Of Stock.**__")
-                    let randomaccc = (__message[Math.floor(Math.random() * numberofaccsds)]);
+                    let randomaccc = (__message[Math.floor(Math.random() * numberofaccsss)]);
                     eee = new discord.RichEmbed()
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
