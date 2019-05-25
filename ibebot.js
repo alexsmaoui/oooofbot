@@ -74,7 +74,7 @@ const discord = require ('discord.js');
             if (message.author.bot || coolguy.has(message.author)) return
             var __message = client.fortnite.message;
             let numberofaccs = __message.length
-            if (__message.length < 2) return message.channel.send("**__Out Of Stock.__**")
+            if (numberofaccs < 2) return message.channel.send("**__Out Of Stock.__**")
             let randomacc2 = (__message[Math.floor(Math.random() * numberofaccs)]);
             eee = new discord.RichEmbed()
             .setColor("RANDOM")
@@ -103,7 +103,7 @@ const discord = require ('discord.js');
                 if (message.author.bot || cooldowns.has(message.author)) return      
                 var __message = client.fortnite.message;
                 let numberofaccss = __message.length
-                if (__message.length < 2) return message.channel.send("**__Out Of Stock.__**");
+                if (numberofaccss < 2) return message.channel.send("**__Out Of Stock.__**");
                 let randomacc = (__message[Math.floor(Math.random() * numberofaccss)]);
                 eee = new discord.RichEmbed()
                 .setColor("RANDOM")
@@ -132,7 +132,7 @@ const discord = require ('discord.js');
                     if (message.author.bot || somethingidk.has(message.author)) return
                     var __messagee = client.spotify.message;
                     let numberofaccsss = __messagee.length
-                    if (__messagee.length < 2) return message.channel.send("__**Out Of Stock.**__")
+                    if (numberofaccsss < 2) return message.channel.send("__**Out Of Stock.**__")
                     let randomaccc = (__message[Math.floor(Math.random() * numberofaccsss)]);
                     eee = new discord.RichEmbed()
                     .setColor("RANDOM")
