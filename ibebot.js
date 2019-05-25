@@ -129,7 +129,7 @@ const discord = require ('discord.js');
                     .setColor("YELLOW")
             if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmmmm);
                     if (message.channel.id !== '580531805791322133') return message.channel.send(embdfffff);
-                    if (message.author.bot || coolguy.has(message.author)) return
+                    if (message.author.bot || somethingidk.has(message.author)) return
                     var __messagee = client.spotify.message;
                     let numberofaccsss = __messagee.length
                     if (__messagee.length < 2) return message.channel.send("__**Out Of Stock.**__")
