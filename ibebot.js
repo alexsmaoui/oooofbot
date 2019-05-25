@@ -138,7 +138,7 @@ const discord = require ('discord.js');
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
                     .setTitle("**__✅GENERATED SPOTIFY ACCOUNT✅__**")
-                    .setDescription("**email:password** :"  + __messagee[Math.floor(Math.random() * randomaccc)]);
+                    .setDescription("**email:password** :"  + randomaccc);
                 mention.send (eee);
                     embed = new discord.RichEmbed ()
                     .setDescription (`I Have Successfully Sent You The Spotify Account! Please Check Your DMs:thumbup:`)
