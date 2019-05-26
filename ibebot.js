@@ -76,13 +76,13 @@ const discord = require ('discord.js');
             let numberofaccs = __message.length
             if (numberofaccs < 2) return message.channel.send("**__Out Of Stock.__**")
             let randomacc2 = (__message[Math.floor(Math.random() * numberofaccs)]);
-            eee = new discord.RichEmbed()
+            let eee = new discord.RichEmbed()
             .setColor("RANDOM")
             .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
             .setTitle("**__✅GENERATED FORTNITE ACCOUNT✅__**")
             .setDescription("**email:password** :"  + randomacc2);
         mention.send (eee);
-            embed = new discord.RichEmbed ()
+             let embed = new discord.RichEmbed ()
             .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
             .setColor ("#")
             .setThumbnail(message.author.displayAvatarURL)
@@ -90,29 +90,28 @@ const discord = require ('discord.js');
           skanherooo(message.author, 300);
             }
             if (message.content.startsWith (prefix + "pgen")) {
-                let embdffff = new discord.RichEmbed()
+                let embdfffmf = new discord.RichEmbed()
             .setColor("RANDOM")
             .setDescription(`Use This Command In (#premuim-gen)`)
-            let prmmmm = new discord.RichEmbed()
+            let prmmmfm = new discord.RichEmbed()
             .setDescription("U Need To have (Premium Gen Access) To Run This Command!")
             .setColor("YELLOW")
                 if (!message.member.roles.find(`name`, 'Premium Gen Access')) return 
-                message.channel.send(prmmmm);
+                message.channel.send(prmmmfm);
                 if (message.channel.id !== '579796017948393494') return 
-                message.channel.send(embdffff);
+                message.channel.send(embdfffmf);
                 if (message.author.bot || cooldowns.has(message.author)) return      
                 var __message = client.fortnite.message;
                 let numberofaccss = __message.length
                 if (numberofaccss < 2) return message.channel.send("**__Out Of Stock.__**");
                 let randomacc = (__message[Math.floor(Math.random() * numberofaccss)]);
-                eee = new discord.RichEmbed()
+                let eee = new discord.RichEmbed()
                 .setColor("RANDOM")
                 .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580025565332111369/ftttf.jpg')
                 .setTitle("**__✅GENERATED PREMUIM FORTNITE ACCOUNT✅__**")
                 .setDescription("**email:password** :"  + randomacc);
             mention.send (eee)
-    
-                embed = new discord.RichEmbed ()
+                 let embed = new discord.RichEmbed ()
                 .setDescription (`I Have Successfully Sent You The Fortnite Account! Please Check Your DMs:thumbup:`)
                 .setColor ("#")
                 .setThumbnail(message.author.displayAvatarURL)
@@ -134,13 +133,13 @@ const discord = require ('discord.js');
                     let numberofaccsss = __messageee.length
                     if (numberofaccsss < 2) return message.channel.send("__**Out Of Stock.**__")
                     let randomaccc = (__messageee[Math.floor(Math.random() * numberofaccsss)]);
-                    eee = new discord.RichEmbed()
+                    let eee = new discord.RichEmbed()
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
                     .setTitle("**__✅GENERATED SPOTIFY ACCOUNT✅__**")
                     .setDescription("**email:password** :"  + randomaccc);
                 mention.send (eee);
-                    embed = new discord.RichEmbed ()
+                     let embed = new discord.RichEmbed ()
                     .setDescription (`I Have Successfully Sent You The Spotify Account! Please Check Your DMs:thumbup:`)
                     .setColor ("#")
                     .setThumbnail(message.author.displayAvatarURL)
