@@ -130,10 +130,10 @@ const discord = require ('discord.js');
             if (!message.member.roles.find(`name`, 'Spotify Gen Access')) return message.channel.send(prmmmmm);
                     if (message.channel.id !== '580531805791322133') return message.channel.send(embdfffff);
                     if (message.author.bot || somethingidk.has(message.author)) return
-                    var __messagee = client.spotify.message;
-                    let numberofaccsss = __messagee.length
+                    var __messageee = client.spotify.message;
+                    let numberofaccsss = __messageee.length
                     if (numberofaccsss < 2) return message.channel.send("__**Out Of Stock.**__")
-                    let randomaccc = (__message[Math.floor(Math.random() * numberofaccsss)]);
+                    let randomaccc = (__messageee[Math.floor(Math.random() * numberofaccsss)]);
                     eee = new discord.RichEmbed()
                     .setColor("RANDOM")
                     .setThumbnail('https://cdn.discordapp.com/attachments/579732731710406657/580643845461770240/spo.png')
